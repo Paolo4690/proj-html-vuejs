@@ -7,40 +7,13 @@
     </div>
     <div class="cont-list-circle">
       <ul>
-        <li>
-          <div class="circle even">
-            <img src="../../assets/img/main/icon/schoolbag_alt.png" alt="">
+        <li v-for="item in list" :key="item.title">
+          <div class="circle">
+            <img :src="item.img" alt="">
           </div>
           <div class="cont-text">
-            <h4>Morbi Etos</h4>
-            <p>Praesent interdum est gravida vehicula est node maecenas loareet morbi a dosis luctus novum est praesent.</p>
-          </div>
-        </li>
-        <li>
-          <div class="circle odd">
-            <img src="../../assets/img/main/icon/stroller_alt.png" alt="">
-          </div>
-          <div class="cont-text">
-            <h4>Morbi Etos</h4>
-            <p>Praesent interdum est gravida vehicula est node maecenas loareet morbi a dosis luctus novum est praesent.</p>
-          </div>
-        </li>
-        <li>
-          <div class="circle even">
-            <img src="../../assets/img/main/icon/globe_alt.png" alt="">
-          </div>
-          <div class="cont-text">
-            <h4>Morbi Etos</h4>
-            <p>Praesent interdum est gravida vehicula est node maecenas loareet morbi a dosis luctus novum est praesent.</p>
-          </div>
-        </li>
-        <li>
-          <div class="circle odd">
-            <img src="../../assets/img/main/icon/bell_alt.png" alt="">
-          </div>
-          <div class="cont-text">
-            <h4>Morbi Etos</h4>
-            <p>Praesent interdum est gravida vehicula est node maecenas loareet morbi a dosis luctus novum est praesent.</p>
+            <h4>{{ item.title }}</h4>
+            <p>{{ item.text }}</p>
           </div>
         </li>
       </ul>
@@ -49,9 +22,39 @@
 </template>
 
 <script>
+import img1 from '../../assets/img/main/icon/schoolbag_alt.png'
+import img2 from '../../assets/img/main/icon/stroller_alt.png'
+import img3 from '../../assets/img/main/icon/globe_alt.png'
+import img4 from '../../assets/img/main/icon/bell_alt.png'
+
 export default {
   name: 'MainWelcome',
-
+  data() {
+    return {
+      list: [
+        {
+          img: img1,
+          title: 'Morbi Etos',
+          text: 'Praesent interdum est gravida vehicula est node maecenas loareet morbi a dosis luctus novum est praesent.'
+        },
+        {
+          img: img2,
+          title: 'Congue Gravida',
+          text: 'Elipsis magna a terminal nulla elementum morbi elite forte maecenas est magna etos interdum vitae est.'
+        },
+        {
+          img: img3,
+          title: 'Maecenas Node',
+          text: 'Praesent interdum est gravida vehicula est node maecenas loareet morbi a dosis luctus novum est praesent.'
+        },
+        {
+          img: img4,
+          title: 'Praesent Morbi',
+          text: 'lipsis magna a terminal nulla elementum morbi elite forte maecenas est magna etos interdum vitae est.'
+        },
+      ]
+    }
+  }
 }
 </script>
 
@@ -64,6 +67,12 @@ section#welcome {
         display: flex;
         justify-content: space-between;
         gap: 1rem;
+        li:nth-of-type(2n + 1) .circle {
+          background-color: $color-secondary;
+        }
+        li:nth-of-type(2n + 2) .circle {
+          background-color: $color-primary;
+        }
         li {
           display: flex;
           flex-direction: column;

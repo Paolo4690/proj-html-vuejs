@@ -3,40 +3,13 @@
     <div class="container">
       <div class="cont-list-circle">
         <ul>
-          <li>
+          <li v-for="item in list" :key="item.title">
             <div class="circle cir-border">
-              <span>507</span>
+              <span>{{ item.num }}</span>
             </div>
             <div class="cont-text">
-              <h4>Our Pupils</h4>
-              <p>Pulvinar forte maestro node terminal est elipsis prism.</p>
-            </div>
-          </li>
-          <li>
-            <div class="circle cir-border">
-              <span>235</span>
-            </div>
-            <div class="cont-text">
-              <h4>Teaching Hours</h4>
-              <p>Elipsis morbi nulla a metro interdum vitae elite.</p>
-            </div>
-          </li>
-          <li>
-            <div class="circle cir-border">
-              <span>100%</span>
-            </div>
-            <div class="cont-text">
-              <h4>Satisfied Parents</h4>
-              <p>Elementum pulvinar detos diaspis movum blandit.</p>
-            </div>
-          </li>
-          <li>
-            <div class="circle cir-border">
-              <span>1050</span>
-            </div>
-            <div class="cont-text">
-              <h4>Meals Per Year</h4>
-              <p>Pulvinar forte maestro node terminal est elipsis prism.</p>
+              <h4>{{ item.title }}</h4>
+              <p>{{ item.text }}</p>
             </div>
           </li>
         </ul>
@@ -48,6 +21,32 @@
 <script>
 export default {
   name: 'MainFirstParallax',
+  data() {
+    return {
+      list: [
+        {
+          title: 'Our Pupils',
+          text: 'Pulvinar forte maestro node terminal est elipsis prism.',
+          num: '507'
+        },
+        {
+          title: 'Teaching Hours',
+          text: 'Elipsis morbi nulla a metro interdum vitae elite.',
+          num: '235'
+        },
+        {
+          title: 'Satisfied Parents',
+          text: 'Elementum pulvinar detos diaspis movum blandit.',
+          num: '100%'
+        },
+        {
+          title: 'Meals Per Year',
+          text: 'Pulvinar forte maestro node terminal est elipsis prism.',
+          num: '1050'
+        },
+      ]
+    }
+  }
 
 }
 </script>
