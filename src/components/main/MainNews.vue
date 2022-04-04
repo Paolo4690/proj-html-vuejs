@@ -63,7 +63,7 @@
     </div>
     <div class="btn">
       <span>GO TO BLOG</span>
-      <img class="fix" src="../../assets/img/slider_next.png" alt="">
+      <img src="../../assets/img/slider_next.png" alt="">
     </div>
   </section>
 </template>

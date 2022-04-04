@@ -19,6 +19,7 @@
     <MainSecondParallax/>
     <MainNews/>
     <MainMap/>
+    <MainContact/>
   </main>
 </template>
 
@@ -35,6 +36,7 @@ import MainStaff from './main/MainStaff.vue'
 import MainSecondParallax from './main/MainSecondParallax.vue'
 import MainNews from './main/MainNews.vue'
 import MainMap from './main/MainMap.vue'
+import MainContact from './main/MainContact.vue'
 
 export default {
   name: 'MainFable',
@@ -58,7 +60,8 @@ export default {
     MainStaff,
     MainSecondParallax,
     MainNews,
-    MainMap
+    MainMap,
+    MainContact
   }
 }
 </script>
