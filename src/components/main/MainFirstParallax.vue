@@ -5,7 +5,7 @@
         <ul>
           <li v-for="item in list" :key="item.title">
             <div class="circle cir-border">
-              <span>{{ item.num }}</span>
+              <span>{{ item.num }}{{ item.nType }}</span>
             </div>
             <div class="cont-text">
               <h4>{{ item.title }}</h4>
@@ -27,27 +27,30 @@ export default {
         {
           title: 'Our Pupils',
           text: 'Pulvinar forte maestro node terminal est elipsis prism.',
-          num: '507'
+          num: 507,
+          nType: ''
         },
         {
           title: 'Teaching Hours',
           text: 'Elipsis morbi nulla a metro interdum vitae elite.',
-          num: '235'
+          num: 235,
+          nType: ''
         },
         {
           title: 'Satisfied Parents',
           text: 'Elementum pulvinar detos diaspis movum blandit.',
-          num: '100%'
+          num: 100,
+          nType: '%'
         },
         {
           title: 'Meals Per Year',
           text: 'Pulvinar forte maestro node terminal est elipsis prism.',
-          num: '1050'
+          num: 1050,
+          nType: ''
         },
       ]
     }
   }
-
 }
 </script>
 

@@ -10,7 +10,7 @@
       <p>{{ subTitle }}</p>
     </div>
     <div class="cont-boxs">
-      <div v-for="item in list" :key="item.name" class="box">
+      <div v-for="item in lists" :key="item.name" class="box">
         <div class="quotes"></div>
         <div class="left">
           <div class="cont-transf">
@@ -25,7 +25,7 @@
         <div class="right">
           <p>{{ item.text }}</p>
           <div class="cont-social">
-            <div v-for="social in social" :key="social.name" class="square-social">
+            <div v-for="social in item.socials" :key="social.name" class="square-social">
               <img :src="social.imgSocial" :alt="'logo' + social.name">
             </div>
           </div>
@@ -44,7 +44,7 @@ import img2 from '../../assets/img/main/team/team_03.jpg'
 import social4 from '../../assets/img/main/icon/dribbble.png'
 import social5 from '../../assets/img/main/icon/stumbleupon.png'
 import social6 from '../../assets/img/main/icon/instagram.png'
-import img3 from '../../assets/img/main/team/team_03.jpg'
+import img3 from '../../assets/img/main/team/team_02.jpg'
 import social7 from '../../assets/img/main/icon/bing.png'
 import social8 from '../../assets/img/main/icon/skype.png'
 import social9 from '../../assets/img/main/icon/linkedin.png'
@@ -59,13 +59,13 @@ export default {
     return {
       title:'Our staff consists of three teachers and one assistant with experience in early childhood care.',
       subTitle: 'Praesent arcu gravida vehicula est node maecenas loareet morbi a dosis luctus. Urna eget lacinia eleifend praesent luctus a arcu quis facilisis venenatis. Aenean interdum, nibh vitae sodales, magna ante feugiat elit maecenas.',
-      list:[
+      lists:[
         {
           img: img1,
           name: 'Ruth Richie',
           rules: 'Teacher',
           text: 'I have just finished my studies in Early Childhood Education, and I am also the kid’s yoga teacher here at Fable. I enjoy cooking, swimming and bike riding in my free time.',
-          social: [
+          socials: [
             {
               name:'mail',
               imgSocial: social1
@@ -85,7 +85,7 @@ export default {
           name: 'Katie Willmore',
           rules: 'Assistant Teacher',
           text: 'My name is Katie. I grew up and studied in Canada. This is my second year at Fable and love every minute of it, making the children’s learning experience fun.',
-          social: [
+          socials: [
             {
               name:'dribbble',
               imgSocial: social4
@@ -102,10 +102,10 @@ export default {
         },
         {
           img: img3,
-          name: 'Katie Willmore',
+          name: 'Angelica Watson',
           rules: 'Assistant Teacher',
-          text: 'My name is Katie. I grew up and studied in Canada. This is my second year at Fable and love every minute of it, making the children’s learning experience fun.',
-          social: [
+          text: 'I hold a degree in Early Childhood Education and an advanced English language certificate. I have been working as a kindergarten teacher since 2002.',
+          socials: [
             {
               name:'bing',
               imgSocial: social7
@@ -125,7 +125,7 @@ export default {
           name: 'Angela Lynn',
           rules: 'Teacher',
           text: 'I have completed a Graduate Diploma in Early Childhood Teaching. I have worked with children aged from six weeks to eight years. This is my second year at Fable.',
-          social: [
+          socials: [
             {
               name:'youtube',
               imgSocial: social10
@@ -223,19 +223,7 @@ section#team {
             cursor: pointer;
           }
           .plus {
-            opacity: 0;
-            transition: opacity .3s;
-            position: absolute;
-            top: 132px;
-            left: 50%;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background-image: url('../../assets/img/main/gallery/image_overlay.png');
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-color: rgba($color: #56509F, $alpha: .5);
-            transform: translate(-50%, -50%);
+          background-image: url('../../assets/img/main/gallery/image_overlay.png');
           }
           .cont-rule {
             height: 100%;

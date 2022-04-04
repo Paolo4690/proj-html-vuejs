@@ -121,19 +121,7 @@ section#news {
           display: block;
         }
         .plus {
-          opacity: 0;
-          transition: opacity .3s;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 100px;
-          height: 100px;
-          border-radius: 50%;
-          background-image: url('../../assets/img/main/gallery/image_overlay.png');
-          background-repeat: no-repeat;
-          background-position: center center;
-          background-color: rgba($color: #56509F, $alpha: .5);
-          transform: translate(-50%, -50%);
+        background-image: url('../../assets/img/main/gallery/image_overlay.png');
         }
         .square-social{
           position: absolute;
