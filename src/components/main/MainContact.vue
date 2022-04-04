@@ -6,40 +6,13 @@
       <img src="../../assets/img/header_divider.png" alt="">
     </div>
     <div class="cont-boxs">
-      <div class="box">
+      <div v-for="item in list" :key="item.title" class="box">
         <div class="cont-img">
-          <img src="../../assets/img/main/icon/envelope.png" alt="">
+          <img :src="item.img" alt="">
         </div>
         <div class="cont-text">
-          <h4>Postal Address</h4>
-          <p>Fable Care Center <br> 85 Fentiman Ave <br> Ottawa, ON K1S 0T7</p>
-        </div>
-      </div>
-      <div class="box">
-        <div class="cont-img">
-          <img src="../../assets/img/main/icon/mobile.png" alt="">
-        </div>
-        <div class="cont-text">
-          <h4>Phone & E-mail</h4>
-          <p>Phone: 1-800-64-38 <br> Fax: 1-800-64-39 <br> office@fable.com</p>
-        </div>
-      </div>
-      <div class="box">
-        <div class="cont-img">
-          <img src="../../assets/img/main/icon/clock.png" alt="">
-        </div>
-        <div class="cont-text">
-          <h4>Business Hours</h4>
-          <p>Monday – Friday <br> 8.00 am – 5.00 pm Weekend Close</p>
-        </div>
-      </div>
-      <div class="box">
-        <div class="cont-img">
-          <img src="../../assets/img/main/icon/document.png" alt="">
-        </div>
-        <div class="cont-text">
-          <h4>Sessions</h4>
-          <p>Mornings, 8 am – 12 noon <br> Afternoons, 1 pm – 5 pm <br> Full Day, 8 am – 5 pm</p>
+          <h4>{{ item.title }}</h4>
+          <p>{{ item.text1 }}<br>{{ item.text2 }}<br>{{ item.text3 }}</p>
         </div>
       </div>
     </div>
@@ -50,10 +23,49 @@
 <script>
 import MainForm from './MainForm.vue'
 
+import img1 from '../../assets/img/main/icon/envelope.png'
+import img2 from '../../assets/img/main/icon/mobile.png'
+import img3 from '../../assets/img/main/icon/clock.png'
+import img4 from '../../assets/img/main/icon/document.png'
+
 export default {
   name: 'MainContact',
   components: {
     MainForm,
+  },
+  data () {
+    return {
+      list: [
+        {
+          img: img1,
+          title: 'Postal Address',
+          text1: 'Fable Care Center',
+          text2: '85 Fentiman Ave',
+          text3: 'Ottawa, ON K1S 0T7',
+        },
+        {
+          img: img2,
+          title: 'Phone & E-mail',
+          text1: 'Phone: 1-800-64-38',
+          text2: 'Fax: 1-800-64-39',
+          text3: 'office@fable.com',
+        },
+        {
+          img: img3,
+          title: 'Business Hours',
+          text1: 'Monday – Friday',
+          text2: '8.00 am – 5.00 pm',
+          text3: 'Weekend Close',
+        },
+        {
+          img: img4,
+          title: 'Sessions',
+          text1: 'Mornings, 8 am – 12 noon',
+          text2: 'Afternoons, 1 pm – 5 pm',
+          text3: 'Full Day, 8 am – 5 pm',
+        },
+      ]
+    }
   }
 }
 </script>

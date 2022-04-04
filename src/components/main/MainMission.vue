@@ -3,50 +3,59 @@
     <div class="container">
       <div class="cont-text">
         <div class="cont-btn">
-          <div class="btn-mission active">
+          <div @click="missionOpen=false" :class="missionOpen==false ? 'active' : ''" class="btn-mission">
             <span>Overview</span>
             <div class="arrow"></div>
           </div>
-          <div class="btn-mission">
+          <div @click="missionOpen=true" :class="missionOpen ? 'active' : ''" class="btn-mission">
             <span>Our Mission</span>
             <div class="arrow"></div>
           </div>
         </div>
-        <h2>Our philosophy is learning through play as we offer a stimulating environment for children.</h2>
-        <div class="info">
-          <div class="circle even">
-            <img src="../../assets/img/main/icon/clock_alt.png" alt="">
-          </div>
-          <div class="text">
-            <h5>Full Day Session</h5>
-            <p>Pulvinar est metro ligula blandit maecenas retrum gravida cuprum. Maecenas node estibulum.</p>
+        <div v-if="missionOpen == false" id="overview">
+          <h2>Our philosophy is learning through play as we offer a stimulating environment for children.</h2>
+          <div v-for="list in overview.list" :key="list.title" class="info">
+            <div class="circle even">
+              <img :src="list.img" :alt="list.title">
+            </div>
+            <div class="text">
+              <h5>{{ list.title }}</h5>
+              <p>{{ list.text }}</p>
+            </div>
           </div>
         </div>
-        <div class="info">
-          <div class="circle even">
-            <img src="../../assets/img/main/icon/diagram_alt.png" alt="">
-          </div>
-          <div class="text">
-            <h5>Varied Classes</h5>
-            <p>Pulvinar est metro ligula blandit maecenas retrum gravida cuprum. Maecenas node estibulum.</p>
+        <div v-if="missionOpen" id="mission">
+          <div v-for="list in mission.list" :key="list.title" class="info">
+            <div class="circle">
+              <img :src="list.img" :alt="list.title">
+            </div>
+            <div class="text">
+              <h5>{{ list.title }}</h5>
+              <p>{{ list.text }}</p>
+            </div>
           </div>
         </div>
       </div>
       <div class="cont-slider">
-        <div class="img-principal">
-          <img src="../../assets/img/main/mission-slide/slide-1.jpg" alt="">
-          <div class="arrow left">-</div>
-          <div class="arrow right">-</div>
+        <div @mouseover="stopRotation()" @mouseout="startRotation()" class="img-principal">
+          <img :src="slides[counterIndex].img" alt="">
+          <div @click="prev()" class="arrow left">
+            <img src="../../assets/img/slider_previous.png" alt="">
+          </div>
+          <div @click="next()" class="arrow right">
+            <img src="../../assets/img/slider_next.png" alt="">
+          </div>
         </div>
         <div class="img-slide">
-          <div class="slide-small active">
-            <img src="../../assets/img/main/mission-slide/slide-1.jpg" alt="">
+          <div
+            v-for="(item, index) in slides"
+            :key="index"
+            @click="counterIndex = index"
+            :class="index == counterIndex ? 'active' : ''"
+            class="slide-small"
+            >
+            <img :class="index == counterIndex ? 'active' : ''" :src="item.img" alt="">
           </div>
-          <div class="slide-small">
-            <img src="../../assets/img/main/mission-slide/slide-2.jpg" alt="">
-          </div>
-          <div class="slide-small">
-            <img src="../../assets/img/main/mission-slide/slide-3.jpg" alt=""></div>
         </div>
       </div>
     </div>
@@ -54,9 +63,103 @@
 </template>
 
 <script>
+import icon1 from '../../assets/img/main/icon/clock_alt.png'
+import icon2 from '../../assets/img/main/icon/diagram_alt.png'
+import icon3 from '../../assets/img/main/icon/screen.png'
+import icon4 from '../../assets/img/main/icon/heart.png'
+import icon5 from '../../assets/img/main/icon/lab.png'
+
+import slide1 from '../../assets/img/main/mission-slide/slide-1.jpg'
+import slide2 from '../../assets/img/main/mission-slide/slide-2.jpg'
+import slide3 from '../../assets/img/main/mission-slide/slide-3.jpg'
+
 export default {
   name: 'MainMission',
-
+  data() {
+    return {
+      missionOpen: false,
+      overview: {
+        title: 'Our philosophy is learning through play as we offer a stimulating environment for children.',
+        list: [
+          {
+            title: 'Full Day Session',
+            text: 'Pulvinar est metro ligula blandit maecenas retrum gravida cuprum. Maecenas node estibulum.',
+            img: icon1
+          },
+          {
+            title: 'Varied Classes',
+            text: 'Pulvinar est metro ligula blandit maecenas retrum gravida cuprum. Maecenas node estibulum.',
+            img: icon2
+          }
+        ]
+      },
+      mission: {
+        title: '',
+        list: [
+          {
+            title: 'Online Access',
+            text: 'Pulvinar est metro ligula blandit maecenas retrum gravida cuprum. Maecenas node estibulum.',
+            img: icon3
+          },
+          {
+            title: 'Maecenas Node',
+            text: 'Pulvinar est metro ligula blandit maecenas retrum gravida cuprum. Maecenas node estibulum.',
+            img: icon4
+          },
+          {
+            title: 'Praesent Morbi',
+            text: 'Pulvinar est metro ligula blandit maecenas retrum gravida cuprum. Maecenas node estibulum.',
+            img: icon5
+          }
+        ]
+      },
+      counterIndex: 0,
+      slides: [
+        {
+          img: slide1
+        },
+        {
+          img: slide2
+        },
+        {
+          img: slide3
+        },
+      ],
+      timer: ''
+    }
+  },
+  methods: {
+    next() {
+        if (this.counterIndex == this.slides.length - 1) {
+            this.counterIndex = 0
+        } else {
+            this.counterIndex++
+        }
+        this.resetRotation(this.counterIndex)
+    },
+    prev() {
+        if (this.counterIndex == 0) {
+            this.counterIndex = this.slides.length - 1
+        } else {
+            this.counterIndex--
+        }
+        this.resetRotation(this.counterIndex)
+    },
+    startRotation() {
+        this.timer = setInterval(this.next, 3000);
+    },
+    stopRotation(){
+        clearInterval(this.timer)
+    },
+    resetRotation(index) {
+        clearInterval(this.timer)
+        this.startRotation()
+        this.counterIndex = index
+    }
+  },
+  created() {
+      this.startRotation()
+  }
 }
 </script>
 
@@ -76,6 +179,15 @@ section#mission {
         display: flex;
         align-items: center;
         gap: .5rem;
+        .active {
+          background-color: $color-secondary;
+          border-color: $color-secondary;
+          color: #fff;
+        }
+        .active .arrow {
+          border-top-color: $color-secondary;
+          cursor: pointer;
+        }
         .btn-mission {
           position: relative;
           flex: 0 0 140px;
@@ -142,6 +254,12 @@ section#mission {
           }
         }
       }
+      #mission .circle {
+        flex: 0 0 auto;
+        width: 80px;
+        height: 80px;
+        border: 2px solid $color-secondary;
+      }
     }
     .cont-slider {
       flex: 0 0 50%;
@@ -161,6 +279,7 @@ section#mission {
           height: 40px;
           background-color: $color-secondary;
           color: #fff;
+          cursor: pointer;
         }
         .left {
           left: 0;
@@ -182,6 +301,9 @@ section#mission {
             &:hover {
               opacity: .8;
             }
+          }
+          img.active {
+            opacity: .8;
           }
         }
         .active {

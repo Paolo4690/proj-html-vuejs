@@ -54,7 +54,7 @@ export default {
     display: flex;
     justify-content: space-between;
     .logo {
-      width: 110px;
+      width: 145px;
       img {
         width: 100%;
         display: block;

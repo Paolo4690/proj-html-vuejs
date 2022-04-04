@@ -2,7 +2,7 @@
   <footer>
     <div class="social container">
       <div class="cont-social">
-        <div v-for="item in $store.state.social" :key="item.name" class="square-social">
+        <div v-for="item in social" :key="item.name" class="square-social">
           <img :src="item.imgUrl" :alt="'logo' + item.name">
         </div>
       </div>
@@ -12,8 +12,40 @@
 </template>
 
 <script>
+import behance from '../../assets/img/footer-img/behance.png'
+import dribbble from '../../assets/img/footer-img/dribbble.png'
+import envato from '../../assets/img/footer-img/envato.png'
+import facebook from '../../assets/img/footer-img/facebook.png'
+import twitter from '../../assets/img/footer-img/twitter.png'
+
 export default {
   name: 'FooterSocial',
+  data() {
+    return {
+      social: [
+        {
+          name:'behance',
+          imgUrl: behance
+        },
+        {
+          name:'dribbble',
+          imgUrl: dribbble
+        },
+        {
+          name:'envato',
+          imgUrl: envato
+        },
+        {
+          name:'facebook',
+          imgUrl: facebook
+        },
+        {
+          name:'twitter',
+          imgUrl: twitter
+        },
+      ],
+    }
+  }
 }
 </script>
 

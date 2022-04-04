@@ -21,6 +21,11 @@ export default {
 <style scoped lang="scss">
 @import '../assets/styles/partial/variables';
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
   color: #CCCAE2;
 }
 </style>

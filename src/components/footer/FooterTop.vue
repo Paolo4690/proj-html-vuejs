@@ -3,42 +3,42 @@
     <div class="footer-top pattern">
       <div class="container">
         <div class="cont-list">
-          <h5>{{ $store.state.footer.about.name }}</h5>
+          <h5>{{ about.name }}</h5>
           <hr>
           <div class="cont-info">
-            <p>{{ $store.state.footer.about.text }}</p>
+            <p>{{ about.text }}</p>
             <img src="../../assets/img/footer-img/logo_footer.png" alt="logo fable">
           </div>
         </div>
         <div class="cont-list">
-          <h5>{{ $store.state.footer.archivies.name }}</h5>
+          <h5>{{ archivies.name }}</h5>
           <hr>
           <div class="cont-info">
             <ul>
-              <li class="btn-footer" v-for="(item,index) in  $store.state.footer.archivies.list" :key="index">
+              <li class="btn-footer" v-for="(item,index) in  archivies.list" :key="index">
                 <span>{{ item.name }}</span>
               </li>
             </ul>
           </div>
         </div>
         <div class="cont-list">
-          <h5>{{ $store.state.footer.features.name }}</h5>
+          <h5>{{ features.name }}</h5>
           <hr>
           <div class="cont-info">
-            <p>{{$store.state.footer.features.text}}</p>
+            <p>{{features.text}}</p>
             <ul class="features">
-              <li v-for="(item,index) in  $store.state.footer.features.list" :key="index">
+              <li v-for="(item,index) in  features.list" :key="index">
                 <span>{{ item.name }}</span>
               </li>
             </ul>
           </div>
         </div>
         <div class="cont-list">
-          <h5>{{ $store.state.footer.posts.name }}</h5>
+          <h5>{{ posts.name }}</h5>
           <hr>
           <div class="cont-info">
             <ul class="posts">
-              <li v-for="item in $store.state.footer.posts.list" :key="item.name">
+              <li v-for="item in posts.list" :key="item.name">
                 <div class="cont-post">
                   <img :src="item.href" :alt="item.name">
                   <div class="cont-txt-post">
@@ -56,8 +56,102 @@
 </template>
 
 <script>
+import posts1 from '../../assets/img/footer-img/blog_09-150x150.jpg'
+import posts2 from '../../assets/img/footer-img/blog_10-150x150.jpg'
+import posts3 from '../../assets/img/footer-img/blog_08-150x150.jpg'
+
 export default {
   name: 'FooterTop',
+  data() {
+    return {
+      about: {
+        name: 'about us',
+        text: 'Elipsis magna a nulla elite forte maecenas est elementum magna etos interdum movum morbi vehicula morbi.' ,
+        list: []
+      },
+      archivies: {
+        name: 'archivies',
+        text: '',
+        list: [
+          {
+            name: 'OCTOBER 2014 (2)',
+            href: '#'
+          },
+          {
+            name: 'SEPTEMBER 2014 (2)',
+            href: '#'
+          },
+          {
+            name: 'AUGUST 2014 (2)',
+            href: '#'
+          },
+          {
+            name: 'JULY 2014 (2)',
+            href: '#'
+          },
+          {
+            name: 'JUNE 2014 (2)',
+            href: '#'
+          },
+          {
+            name: 'MAY 2014 (1)',
+            href: '#'
+          },
+        ]
+      },
+      features: {
+        name: 'our features',
+        text: 'Nunc gravida rutrum mauris vehin hasellus ac pretium augue vivamul lacus ligul mattis ac vene:',
+        list: [
+          {
+            name: 'Friendly and welcoming place',
+            href: '#'
+          },
+          {
+            name: 'Science and art classes',
+            href: '#'
+          },
+          {
+            name: 'Positive learning environment',
+            href: '#'
+          },
+          {
+            name: 'Educational field trips',
+            href: '#'
+          },
+          {
+            name: 'Writing and reading classes',
+            href: '#'
+          },
+          {
+            name: 'Science and art classes',
+            href: '#'
+          },
+        ]
+      },
+      posts: {
+        name: 'recent posts',
+        text: '',
+        list: [
+          {
+            name: 'Drawing and Painting Lessons',
+            data: 'October 03, 2014',
+            href: posts1
+          },
+          {
+            name: 'Fall Parents Meeting Day',
+            data: 'October 03, 2014',
+            href: posts2
+          },
+          {
+            name: 'Birthday in Kindergarten',
+            data: 'September 20, 2014',
+            href: posts3
+          },
+        ]
+      }
+    }
+  }
 }
 </script>
 
@@ -72,6 +166,7 @@ footer {
   }
   .footer-top {
     padding: 3rem 0;
+    margin-bottom: 145px;
     .container {
       display: flex;
       gap: 1.7rem;

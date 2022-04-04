@@ -67,5 +67,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+main {
+  margin-bottom: 625px;
+  background-color: #fff;
+}
 </style>

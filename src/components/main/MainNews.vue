@@ -6,58 +6,22 @@
       <img src="../../assets/img/header_divider.png" alt="">
     </div>
     <div class="cont-boxs">
-      <div class="box">
-        <span>October 03, 2014</span>
+      <div v-for="item in list" :key="item.title" class="box">
+        <span>{{ item.date }}</span>
         <div class="cont-img">
-          <img src="../../assets/img/main/news/blog_09-525x315.jpg" alt="">
+          <img :src="item.img" :alt="item.title">
           <div class="plus"></div>
             <div class="square-social">
-              <span>65</span>
+              <span>{{ item.num }}</span>
             </div>
         </div>
         <div class="cont-text">
-          <h2>Drawing and Painting Lessons</h2>
-          <p>Magna est consectetur interdum modest dictum. Curabitur est faucibus, malesuada esttincidunt etos et mauris, nunc a libero govum est cuprum</p>
+          <h2>{{ item.title }}</h2>
+          <p>{{ item.text }}</p>
         </div>
         <div class="info">
-          <span class="first">Anna Brown</span>
-          <span class="second">Events, Fun</span>
-        </div>
-      </div>
-      <div class="box">
-        <span>October 03, 2014</span>
-        <div class="cont-img">
-          <img src="../../assets/img/main/news/blog_10-525x315.jpg" alt="">
-          <div class="plus"></div>
-            <div class="square-social">
-              <span>19</span>
-            </div>
-        </div>
-        <div class="cont-text">
-          <h2>Fall Parents Meeting Day</h2>
-          <p>Magna est consectetur interdum modest dictum. Curabitur est faucibus, malesuada esttincidunt etos et mauris, nunc a libero govum est cuprum</p>
-        </div>
-        <div class="info">
-          <span class="first">Anna Brown</span>
-          <span class="second">Events, Fun</span>
-        </div>
-      </div>
-      <div class="box">
-        <span>September 20, 2014</span>
-        <div class="cont-img">
-          <img src="../../assets/img/main/news/blog_08-525x315.jpg" alt="">
-          <div class="plus"></div>
-            <div class="square-social">
-              <span>23</span>
-            </div>
-        </div>
-        <div class="cont-text">
-          <h2>Birthday in Kindergarten</h2>
-          <p>Magna est consectetur interdum modest dictum. Curabitur est faucibus, malesuada esttincidunt etos et mauris, nunc a libero govum est cuprum</p>
-        </div>
-        <div class="info">
-          <span class="first">Anna Brown</span>
-          <span class="second">Events, Fun</span>
+          <span class="first">{{ item.name }}</span>
+          <span class="second">{{ item.events }}</span>
         </div>
       </div>
     </div>
@@ -69,8 +33,45 @@
 </template>
 
 <script>
+import img1 from '../../assets/img/main/news/blog_09-525x315.jpg'
+import img2 from '../../assets/img/main/news/blog_10-525x315.jpg'
+import img3 from '../../assets/img/main/news/blog_08-525x315.jpg'
+
 export default {
   name: 'MainNews',
+  data() {
+    return {
+      list:[
+        {
+          date: 'October 03, 2014',
+          img: img1,
+          num: '65',
+          title: 'Drawing and Painting Lessons',
+          text: 'Magna est consectetur interdum modest dictum. Curabitur est faucibus, malesuada esttincidunt etos et mauris, nunc a libero govum est cuprum',
+          name: 'Anna Brown',
+          events: 'Events, Fun'
+        },
+        {
+          date: 'October 03, 2014',
+          img: img2,
+          num: '19',
+          title: 'Fall Parents Meeting Day',
+          text: 'Magna est consectetur interdum modest dictum. Curabitur est faucibus, malesuada esttincidunt etos et mauris, nunc a libero govum est cuprum',
+          name: 'Anna Brown',
+          events: 'Dance, Education'
+        },
+        {
+          date: 'September 20, 2014',
+          img: img3,
+          num: '23',
+          title: 'Birthday in Kindergarten',
+          text: 'Magna est consectetur interdum modest dictum. Curabitur est faucibus, malesuada esttincidunt etos et mauris, nunc a libero govum est cuprum',
+          name: 'Anna Brown',
+          events: 'Games, General'
+        },
+      ]
+    }
+  }
 }
 </script>
 
@@ -98,7 +99,7 @@ section#news {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: .5rem;
-    padding-top: 3.5rem;
+    padding-top: 1.5rem;
     .box {
       display: flex;
       flex-direction: column;

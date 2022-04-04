@@ -6,114 +6,27 @@
       <img src="../../assets/img/header_divider.png" alt="">
     </div>
     <div class="sub-title">
-      <h2>Our staff consists of three teachers and one assistant with experience in early childhood care.</h2>
-      <p>Praesent arcu gravida vehicula est node maecenas loareet morbi a dosis luctus. Urna eget lacinia eleifend praesent luctus a arcu quis facilisis venenatis. Aenean interdum, nibh vitae sodales, magna ante feugiat elit maecenas.</p>
+      <h2>{{ title }}</h2>
+      <p>{{ subTitle }}</p>
     </div>
     <div class="cont-boxs">
-      <div class="box">
+      <div v-for="item in list" :key="item.name" class="box">
         <div class="quotes"></div>
         <div class="left">
           <div class="cont-transf">
             <div class="plus"></div>
-            <img src="../../assets/img/main/team/team_04.jpg" alt="">
+            <img :src="item.img" alt="">
             <div class="cont-rule">
-              <h2>Ruth Richie</h2>
-              <span>Teacher</span>
+              <h2>{{ item.name }}</h2>
+              <span>{{ item.rules }}</span>
             </div>
           </div>
         </div>
         <div class="right">
-          <p>I have just finished my studies in Early Childhood Education, and I am also the kid’s yoga teacher here at Fable. I enjoy cooking, swimming and bike riding in my free time.</p>
+          <p>{{ item.text }}</p>
           <div class="cont-social">
-            <div class="square-social">
-              <img src="../../assets/img/main/icon/mail.png" alt="'logo' + item.name">
-            </div>
-            <div class="square-social">
-              <img src="../../assets/img/main/icon/facebook.png" alt="'logo' + item.name">
-            </div>
-            <div class="square-social">
-              <img src="../../assets/img/main/icon/pinterest.png" alt="'logo' + item.name">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="quotes"></div>
-        <div class="left">
-          <div class="cont-transf">
-            <div class="plus"></div>
-            <img src="../../assets/img/main/team/team_03.jpg" alt="">
-            <div class="cont-rule">
-              <h2>Katie Willmore</h2>
-              <span>Assistant Teacher</span>
-            </div>
-          </div>
-        </div>
-        <div class="right">
-          <p>My name is Katie. I grew up and studied in Canada. This is my second year at Fable and love every minute of it, making the children’s learning experience fun.</p>
-          <div class="cont-social">
-            <div class="square-social">
-              <img src="../../assets/img/main/icon/dribbble.png" alt="'logo' + item.name">
-            </div>
-            <div class="square-social">
-              <img src="../../assets/img/main/icon/stumbleupon.png" alt="'logo' + item.name">
-            </div>
-            <div class="square-social">
-              <img src="../../assets/img/main/icon/instagram.png" alt="'logo' + item.name">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="quotes"></div>
-        <div class="left">
-          <div class="cont-transf">
-            <div class="plus"></div>
-            <img src="../../assets/img/main/team/team_02.jpg" alt="">
-            <div class="cont-rule">
-              <h2>Angelica Watson</h2>
-              <span>Lead Teacher</span>
-            </div>
-          </div>
-        </div>
-        <div class="right">
-          <p>I hold a degree in Early Childhood Education and an advanced English language certificate. I have been working as a kindergarten teacher since 2002.</p>
-          <div class="cont-social">
-            <div class="square-social">
-              <img src="../../assets/img/main/icon/bing.png" alt="'logo' + item.name">
-            </div>
-            <div class="square-social">
-              <img src="../../assets/img/main/icon/skype.png" alt="'logo' + item.name">
-            </div>
-            <div class="square-social">
-              <img src="../../assets/img/main/icon/linkedin.png" alt="'logo' + item.name">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="quotes"></div>
-        <div class="left">
-          <div class="cont-transf">
-            <div class="plus"></div>
-            <img src="../../assets/img/main/team/team_01.jpg" alt="">
-            <div class="cont-rule">
-              <h2>Angela Lynn</h2>
-              <span>Teacher</span>
-            </div>
-          </div>
-        </div>
-        <div class="right">
-          <p>I have completed a Graduate Diploma in Early Childhood Teaching. I have worked with children aged from six weeks to eight years. This is my second year at Fable.</p>
-          <div class="cont-social">
-            <div class="square-social">
-              <img src="../../assets/img/main/icon/youtube.png" alt="'logo' + item.name">
-            </div>
-            <div class="square-social">
-              <img src="../../assets/img/main/icon/twitter.png" alt="'logo' + item.name">
-            </div>
-            <div class="square-social">
-              <img src="../../assets/img/main/icon/googleplus.png" alt="'logo' + item.name">
+            <div v-for="social in social" :key="social.name" class="square-social">
+              <img :src="social.imgSocial" :alt="'logo' + social.name">
             </div>
           </div>
         </div>
@@ -123,8 +36,113 @@
 </template>
 
 <script>
+import img1 from '../../assets/img/main/team/team_04.jpg'
+import social1 from '../../assets/img/main/icon/mail.png'
+import social2 from '../../assets/img/main/icon/facebook.png'
+import social3 from '../../assets/img/main/icon/pinterest.png'
+import img2 from '../../assets/img/main/team/team_03.jpg'
+import social4 from '../../assets/img/main/icon/dribbble.png'
+import social5 from '../../assets/img/main/icon/stumbleupon.png'
+import social6 from '../../assets/img/main/icon/instagram.png'
+import img3 from '../../assets/img/main/team/team_03.jpg'
+import social7 from '../../assets/img/main/icon/bing.png'
+import social8 from '../../assets/img/main/icon/skype.png'
+import social9 from '../../assets/img/main/icon/linkedin.png'
+import img4 from '../../assets/img/main/team/team_01.jpg'
+import social10 from '../../assets/img/main/icon/youtube.png'
+import social11 from '../../assets/img/main/icon/twitter.png'
+import social12 from '../../assets/img/main/icon/googleplus.png'
+
 export default {
   name: 'MainStaff',
+  data() {
+    return {
+      title:'Our staff consists of three teachers and one assistant with experience in early childhood care.',
+      subTitle: 'Praesent arcu gravida vehicula est node maecenas loareet morbi a dosis luctus. Urna eget lacinia eleifend praesent luctus a arcu quis facilisis venenatis. Aenean interdum, nibh vitae sodales, magna ante feugiat elit maecenas.',
+      list:[
+        {
+          img: img1,
+          name: 'Ruth Richie',
+          rules: 'Teacher',
+          text: 'I have just finished my studies in Early Childhood Education, and I am also the kid’s yoga teacher here at Fable. I enjoy cooking, swimming and bike riding in my free time.',
+          social: [
+            {
+              name:'mail',
+              imgSocial: social1
+            },
+            {
+              name:'facebook',
+              imgSocial: social2
+            },
+            {
+              name:'printerest',
+              imgSocial: social3
+            }
+          ]
+        },
+        {
+          img: img2,
+          name: 'Katie Willmore',
+          rules: 'Assistant Teacher',
+          text: 'My name is Katie. I grew up and studied in Canada. This is my second year at Fable and love every minute of it, making the children’s learning experience fun.',
+          social: [
+            {
+              name:'dribbble',
+              imgSocial: social4
+            },
+            {
+              name:'stumbleupon',
+              imgSocial: social5
+            },
+            {
+              name:'instagram',
+              imgSocial: social6
+            }
+          ]
+        },
+        {
+          img: img3,
+          name: 'Katie Willmore',
+          rules: 'Assistant Teacher',
+          text: 'My name is Katie. I grew up and studied in Canada. This is my second year at Fable and love every minute of it, making the children’s learning experience fun.',
+          social: [
+            {
+              name:'bing',
+              imgSocial: social7
+            },
+            {
+              name:'skype',
+              imgSocial: social8
+            },
+            {
+              name:'linkedin',
+              imgSocial: social9
+            }
+          ]
+        },
+        {
+          img: img4,
+          name: 'Angela Lynn',
+          rules: 'Teacher',
+          text: 'I have completed a Graduate Diploma in Early Childhood Teaching. I have worked with children aged from six weeks to eight years. This is my second year at Fable.',
+          social: [
+            {
+              name:'youtube',
+              imgSocial: social10
+            },
+            {
+              name:'twitter',
+              imgSocial: social11
+            },
+            {
+              name:'googleplus',
+              imgSocial: social12
+            }
+          ]
+        },
+      ]
+    }
+  }
 }
 </script>
 

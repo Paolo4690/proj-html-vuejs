@@ -1,5 +1,6 @@
 html {
   font-family: 'Lato', sans-serif;
+  scroll-behavior: smooth;
   ::selection {
     background-color: $color-primary;
     color: #fff;

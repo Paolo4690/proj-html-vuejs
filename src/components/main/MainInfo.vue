@@ -2,52 +2,22 @@
   <section id="info">
     <div class="container">
       <div class="left">
-        <h2>We have been educating children for over fifteen years. Our goal is to create a place that engages each child.</h2>
-        <p>Praesent arcu gravida vehicula est node maecenas loareet morbi a dosis luctus. Urna eget lacinia eleifend praesent luctus a arcu quis facilisis venenatis aenean interdum.</p>
+        <h2>{{ title }}</h2>
+        <p>{{ text }}</p>
         <ul>
-          <li>Comprehensive reporting on individual achievement</li>
-          <li>Educational field trips and school presentations</li>
-          <li>Individual attention in a small-class setting</li>
-          <li>Learning program with after-school care</li>
-          <li>Opportunities to carry out scientific investigations</li>
-          <li>Positive learning environment for your child</li>
+          <li v-for="item in listCheck" :key="item.text">
+            {{ item.text }}
+          </li>
         </ul>
       </div>
       <div class="right">
-        <div class="cont-box">
+        <div v-for="item in listInfo" :key="item.title" class="cont-box">
           <div class="circle">
-            <img src="../../assets/img/main/icon/toy.png" alt="">
+            <img :src="item.img" alt="">
           </div>
           <div class="cont-text">
-            <h4>Learning & Fun</h4>
-            <p>Praesent modea est gravida node vehicula luctus.</p>
-          </div>
-        </div>
-        <div class="cont-box">
-          <div class="circle">
-            <img src="../../assets/img/main/icon/meal.png" alt="">
-          </div>
-          <div class="cont-text">
-            <h4>Healthy Meals</h4>
-            <p>Terminal interdum a eleifend maecenas est morbi.</p>
-          </div>
-        </div>
-        <div class="cont-box">
-          <div class="circle">
-            <img src="../../assets/img/main/icon/school.png" alt="">
-          </div>
-          <div class="cont-text">
-            <h4>Friendly Place</h4>
-            <p>Terminal interdum a eleifend maecenas est morbi.</p>
-          </div>
-        </div>
-        <div class="cont-box">
-          <div class="circle">
-            <img src="../../assets/img/main/icon/shield.png" alt="">
-          </div>
-          <div class="cont-text">
-            <h4>Children Safety</h4>
-            <p>Praesent modea est gravida node vehicula luctus.</p>
+            <h4>{{ item.title }}</h4>
+            <p>{{ item.text }}</p>
           </div>
         </div>
       </div>
@@ -56,9 +26,61 @@
 </template>
 
 <script>
+import icon1 from '../../assets/img/main/icon/toy.png'
+import icon2 from '../../assets/img/main/icon/meal.png'
+import icon3 from '../../assets/img/main/icon/toy.png'
+import icon4 from '../../assets/img/main/icon/toy.png'
+
 export default {
   name: 'MainInfo',
-
+  data() {
+    return {
+      title: 'We have been educating children for over fifteen years. Our goal is to create a place that engages each child.',
+      text: 'Praesent arcu gravida vehicula est node maecenas loareet morbi a dosis luctus. Urna eget lacinia eleifend praesent luctus a arcu quis facilisis venenatis aenean interdum.',
+      listCheck: [
+        {
+          text:'Comprehensive reporting on individual achievement'
+        },
+        {
+          text:'Educational field trips and school presentations'
+        },
+        {
+          text:'Individual attention in a small-class setting'
+        },
+        {
+          text:'Learning program with after-school care'
+        },
+        {
+          text:'Opportunities to carry out scientific investigations'
+        },
+        {
+          text:'Positive learning environment for your child'
+        },
+      ],
+      listInfo: [
+        {
+          title: 'Learning & Fun',
+          text: 'Praesent modea est gravida node vehicula luctus.',
+          img: icon1
+        },
+        {
+          title: 'Healthy Meals',
+          text: 'Terminal interdum a eleifend maecenas est morbi.',
+          img: icon2
+        },
+        {
+          title: 'Friendly Place',
+          text: 'Terminal interdum a eleifend maecenas est morbi.',
+          img: icon3
+        },
+        {
+          title: 'Children Safety',
+          text: 'Praesent modea est gravida node vehicula luctus.',
+          img: icon4
+        }
+      ]
+    }
+  }
 }
 </script>
 

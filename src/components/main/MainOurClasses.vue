@@ -10,7 +10,7 @@
       <p>Praesent arcu gravida vehicula est node maecenas loareet morbi a dosis luctus. Urna eget lacinia eleifend praesent luctus a arcu quis facilisis venenatis. Aenean interdum, nibh vitae sodales, magna ante feugiat elit maecenas.</p>
     </div>
     <div class="cont-boxs">
-      <div v-for="box in $store.state.mainClass" :key="box.title" class="box">
+      <div v-for="box in mainClass" :key="box.title" class="box">
         <div class="box-left">
           <h2>{{ box.title }}</h2>
           <span>Class name</span>
@@ -38,6 +38,40 @@
 <script>
 export default {
   name: 'MainOurClasses',
+  data() {
+    return {
+      mainClass: [
+        {
+          title: 'Little Lambs',
+          olds: '12-24',
+          oldType: 'Month olds',
+          classSize: '9',
+          img: 'sfondo1'
+        },
+        {
+          title: 'Bouncy Bears',
+          olds: '2-3',
+          oldType: 'Years olds',
+          classSize: '12',
+          img: 'sfondo2'
+        },
+        {
+          title: 'Tenderhearts',
+          olds: '3-4',
+          oldType: 'Years olds',
+          classSize: '15',
+          img: 'sfondo3'
+        },
+        {
+          title: 'Shining Stars',
+          olds: '4-5',
+          oldType: 'Years olds',
+          classSize: '20',
+          img: 'sfondo4'
+        }
+      ],
+    }
+  }
 }
 </script>
 
