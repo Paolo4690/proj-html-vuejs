@@ -7,7 +7,7 @@
     <div v-if="open" :class="open ? 'active' : ''" class="fix-img">
       <div class="cont-img">
         <img :src="gallery[currentGallery]" alt="">
-        <img @click="open=false"  class="close" src="../../assets/img/main/gallery/close.png" alt="">
+        <img @click="open=false" class="close" src="../../assets/img/main/gallery/close.png" alt="">
         <img @click="prev()" class="prev" src="../../assets/img/main/gallery/prev.png" alt="">
         <img @click="next()" class="next" src="../../assets/img/main/gallery/next.png" alt="">
       </div>
@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     next() {
-        if (this.currentGallery == this.gallery.length - 1) {
+        if (this.currentGallery == this.gallery.length - 1 ) {
             this.currentGallery = 0
         } else {
             this.currentGallery++
@@ -50,8 +50,7 @@ export default {
             this.currentGallery--
         }
     },
-  }
-
+  },
 }
 </script>
 

@@ -31,11 +31,6 @@ export default {
     return {
       currentMenu: 0
     }
-  },
-  props: {
-  },
-  methods: {
-
   }
 }
 </script>

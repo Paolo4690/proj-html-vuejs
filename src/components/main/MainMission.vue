@@ -37,7 +37,7 @@
         </div>
       </div>
       <div class="cont-slider">
-        <div @mouseover="stopRotation()" @mouseout="startRotation()" class="img-principal">
+        <div class="img-principal">
           <img :src="slides[counterIndex].img" alt="">
           <div @click="prev()" class="arrow left">
             <img src="../../assets/img/slider_previous.png" alt="">
@@ -135,7 +135,6 @@ export default {
         } else {
             this.counterIndex++
         }
-        this.resetRotation(this.counterIndex)
     },
     prev() {
         if (this.counterIndex == 0) {
@@ -143,19 +142,10 @@ export default {
         } else {
             this.counterIndex--
         }
-        this.resetRotation(this.counterIndex)
     },
     startRotation() {
         this.timer = setInterval(this.next, 3000);
     },
-    stopRotation(){
-        clearInterval(this.timer)
-    },
-    resetRotation(index) {
-        clearInterval(this.timer)
-        this.startRotation()
-        this.counterIndex = index
-    }
   },
   created() {
       this.startRotation()

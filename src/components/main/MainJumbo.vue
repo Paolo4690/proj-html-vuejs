@@ -71,7 +71,7 @@ export default {
     left: 17vw;
     width: 435px;
     opacity: 1;
-    animation: img1 .5s linear;
+    animation: img1 7s linear;
   }
   @keyframes img1 {
     0% {
@@ -79,24 +79,34 @@ export default {
       left: 14vw;
       opacity: 0;
     }
+    8% {
+      top: 19vh;
+      left: 17vw;
+      opacity: 1;
+    }
   }
   .img2 {
     top: 17vh;
     right: 15vw;
     width: 435px;
     opacity: 1;
-    animation: img2 1s linear ;
+    animation: img2 7s linear ;
   }
   @keyframes img2 {
     0% {
       top: 14vh;
-      right: 15vw;
+      right: 12vw;
       opacity: 0;
     }
-    50% {
+    8% {
       top: 14vh;
       right: 12vw;
       opacity: 0;
+    }
+    16% {
+      top: 17vh;
+      right: 15vw;
+      opacity: 1;
     }
   }
   h1,
@@ -111,47 +121,59 @@ export default {
     left: 50%;
     opacity: 1;
     transform: translateX(-50%);
-    animation: txt 1.5s linear ;
+    animation: txt 7s linear ;
   }
   @keyframes txt {
     0% {
       top: 17vh;
       opacity: 0;
     }
-    75% {
+    16% {
       top: 17vh;
       opacity: 0;
+    }
+    24% {
+      top: 21vh;
+      opacity: 1;
     }
   }
   h1 {
     font-weight: 700;
     top:26vh;
     opacity: 1;
-    animation: h1 1.5s linear ;
+    animation: h1 7s linear ;
   }
   @keyframes h1 {
     0% {
       top: 29vh;
       opacity: 0;
     }
-    75% {
+    16% {
       top: 29vh;
       opacity: 0;
+    }
+    24% {
+      top: 26vh;
+      opacity: 1;
     }
   }
   h2 {
     font-weight: 300;
     top: 32vh;
-    animation: h2 2s linear ;
+    animation: h2 7s linear ;
   }
   @keyframes h2 {
     0% {
-      top: 32vh;
-      opacity: 0;
-    }
-    75% {
       top: 35vh;
       opacity: 0;
+    }
+    24% {
+      top: 35vh;
+      opacity: 0;
+    }
+    32% {
+      top: 32vh;
+      opacity: 1;
     }
   }
   .btn {
@@ -159,15 +181,20 @@ export default {
     left: 50%;
     transform: scale(1) translateX(-50%);
     transform-origin: left;
-    animation: btn 2.5s linear;
+    animation: btn 7s linear;
   }
   @keyframes btn {
     0% {
+      transform: scale(2) translateX(-50%);
       opacity: 0;
     }
-    80% {
-    transform: scale(2) translateX(-50%);
+    32% {
+      transform: scale(2) translateX(-50%);
       opacity: 0;
+    }
+    40% {
+      transform: scale(1) translateX(-50%);
+      opacity: 1;
     }
   }
   .icon1 {
