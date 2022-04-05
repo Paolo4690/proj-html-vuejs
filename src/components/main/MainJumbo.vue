@@ -51,25 +51,19 @@ export default {
   background-image: url('../../assets/img/main/jumbo-slide/slider_slide1_background.png');
   background-size: contain;
   height: 600px;
-  animation: change 21s linear;
+  animation: change 14s linear;
   @keyframes change {
     0% {
       background-image: url('../../assets/img/main/jumbo-slide/slider_slide1_background.png');
     }
-    32% {
+    50% {
       background-image: url('../../assets/img/main/jumbo-slide/slider_slide1_background.png');
     }
-    33% {
+    51% {
       background-image: url('../../assets/img/main/jumbo-slide/slider_slide2_background.png');
     }
-    66% {
+    100% {
       background-image: url('../../assets/img/main/jumbo-slide/slider_slide2_background.png');
-    }
-    67%{
-      background-image: url('../../assets/img/main/jumbo-slide/slider_slide3_background.png');
-    }
-    100%{
-      background-image: url('../../assets/img/main/jumbo-slide/slider_slide3_background.png');
     }
   }
 
