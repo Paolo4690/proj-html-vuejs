@@ -2,7 +2,7 @@
   <section id="welcome" class="container">
     <div class="cont-title">
       <h1>Welcome to Fable</h1>
-      <span>Fable daycare,preschool, and kindergarten</span>
+      <span>Fable daycare, preschool, and kindergarten</span>
       <img src="../../assets/img/header_divider.png" alt="">
     </div>
     <div class="cont-list-circle">
